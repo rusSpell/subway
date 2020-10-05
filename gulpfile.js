@@ -26,7 +26,7 @@ gulp.task('scss', function(){
 gulp.task('css', function(){
   return gulp.src([
     'node_modules/normalize.css/normalize.css',
-    'node_modules/slick-carousel/slick/slick.css',
+    //'node_modules/slick-carousel/slick/slick.css',
   ])
     .pipe(concat('_libs.scss'))
     .pipe(gulp.dest('app/scss'))
@@ -43,15 +43,16 @@ gulp.task('script', function(){
   .pipe(browserSync.reload({stream: true}))
 });
 
-gulp.task('js', function(){
+ gulp.task('js', function(){
   return gulp.src([
-    'node_modules/slick-carousel/slick/slick.js',
+    /* 'node_modules/slick-carousel/slick/slick.js', */
+    'app/log.js',
   ])
     .pipe(concat('libs.min.js'))
     .pipe(uglify())
     .pipe(gulp.dest('app/js'))
     .pipe(browserSync.reload({stream: true}))
-});
+}); 
 
 gulp.task('browser-sync', function() {
   browserSync.init({
